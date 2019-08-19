@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* 공통 스타일 */
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+}
+.clearfix::after{
+  content: "";
+  background: blue;
+  display: block;
+  clear: both;
+}
+/* 레이아웃 */
+.container {
+  background: burlywood;
+   /* flex 방식 column 방식 */
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+
+  /* flex row방식 (기본) */
+   /* display: flex;
+   flex-wrap: wrap;
+   justify-content: center;*/
+} 
+.header, .visual, .main, .slogen, .footer{
+  width: 940px;
+  /* FLOAT방식으로 가운데 정렬 */
+  margin-left: auto;
+  margin-right: auto; 
+
+}
+.header{
+  background: yellow; 
+  height: 10vh;
+}
+.visual{
+  background: grey; 
+  height: 10vh; 
+}
+.main{
+  background: pink;  
+  min-height: 400px;
+  /* height: 60vh; */
+  /* display: flex;
+  justify-content: space-between; */
+  padding: 30px 15px;
+  /* overflow: hidden; */
+}
+
+.group{
+  margin: 0 15px;
+  float: left;
+}
+.group1{
+  background: rgb(217, 212, 221); 
+  /* float: left; */
+  width: 250px; 
+}
+.group2{
+  /* clear: both; */
+  /* float: left; */
+  background: lime;  
+  /* height: 100px; */
+  width: 380px;
+  /* order: -1; */
+}
+.group3{
+  /* float: left; */
+  background: yellow;  
+  width: 190px;
+}
+.slogen{
+  background: red;  
+  height: 10vh;
+}
+.footer-bg{
+  background: silver;
+  height: 10vh;  
+  /* flex-basis: 100%;
+  display: flex;
+  justify-content: center */
+}
+.footer{
+  background: yellow;  
+}
