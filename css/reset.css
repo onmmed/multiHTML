@@ -101,6 +101,7 @@ button {
 
 /* HTML5 display-role reset for older browsers */
 
+main,
 article,
 aside,
 details,
@@ -122,4 +123,5 @@ ul {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
+  /* 테이블에 보더를 경합형태로 */
+} 
