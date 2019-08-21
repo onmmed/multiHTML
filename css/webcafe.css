@@ -1,12 +1,13 @@
 @charset "utf-8";
-@import url("http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+@import url("./fonts.css");
 @import url("./normalize.css");
 @import url("./reset.css");
 /* 선언 순서에 따라 우선순위가 높은 게 아래에 배치 */
 
 
 /* 숨김 콘텐츠 */
-.a11y-hidden{
+.a11y-hidden, legend{
   position: absolute;
   width: 1px;
   height: 1px;
@@ -52,7 +53,7 @@ body{
 /* 레이아웃 */
 .container {
   background:  url(./images/bg_flower.png) no-repeat, linear-gradient(to bottom, #999 0%, #ccc 40%, #eee 60%, #fff 100%);
-  background-position: 50% 0;
+  background-position: 50% 0; 
    /* flex 방식 column 방식 */
   /* display: flex;
   flex-direction: column;
@@ -119,14 +120,122 @@ body{
   border-radius: 0 0 5px 5px;
   box-shadow: 0 -2px 0 0 #000;
   /* border-top: 2px solid #000; */
+  padding-left: 230px;
+}
+.menu-item{
+  /* background: blue; */
+  float: left;
+  border-left: 2px solid rgba(255,255,255,0.85);
+  padding: 0 17px;
+  position: relative;
+}
+.menu-item:focus, .sub-menu a:focus{
+  outline: 0;
+}
+.menu-item-text{
+  line-height: 47px;
+  display: block;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #fff;
+  text-shadow: 1px 0px 0 #000, 0px 1px 0 #000, -1px 0px 0 #000,  0px -1px 0 #000;
+}
+.menu-act .menu-item-text{
+  color: #ff0;
+  border-bottom: 2px solid #000;
+}
+.menu-act .sub-menu{
+  display: block;
+}
+.sub-menu li, .sub-menu a{
+  display: inline-block;
+}
+.sub-menu{
+  position: absolute;
+  display: none;
+  top: 48px;
+  white-space: nowrap; 
+}
+.sub-menu1, .sub-menu2, .sub-menu3{
+  left: 0px;
+}
+.sub-menu4, .sub-menu5, .sub-menu6{
+  right: 0;
+}
+.sub-menu a::before{
+  content: '\f192';
+  font-family: "fontello";
+  width: 1em;
+  margin-right: .2em;
+  line-height: 1em;
+  margin-left: .2em;
+
+}
+.sub-menu a:hover::before, 
+.sub-menu a:focus::before{
+  content: '\e800';
+}
+.sub-menu li{
+  margin-right: 10px;
+}
+.sub-menu a{
+  padding: 10px 0;
 }
 
+/* 비주얼 */
+@keyframes textAni{
+  0% {
+    font-size: 12px;
+    color: rgba(0,0,0,0);
+    transform: translate(0,0);
+  }
+  100% {
+    font-size: 24px;
+    color: rgba(0,0,0,1);
+    transform: translate(400px,75px);
+  }
+}
+@keyframes bgAni{
+  0%{ opacity: 1;}
+  100%{ opacity: 0;}
+}
 .visual{
- 
   height: 120px; 
+  position: relative;
+}
+.visual::before, .visual::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  animation: bgAni 2000ms infinite alternate;
+  /* animation-name: bgAni;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate; */
+}
+.visual::before{
+  background-image: url("./images/ani_flower_01.png"), url("./images/ani_flower_02.png");
+  background-position: 0px -10px, 670px, 0px;
+}
+.visual::after{
+  background-image: url("./images/ani_flower_03.png"), url("./images/ani_flower_04.png");
+  background-position: 300px 0px, 800px 15px;
+  animation-delay: 1000ms;
+}
+.visual-text{
+  animation-name: textAni;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+  position: absolute;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .main{
-  background: pink;  
+  background: #fff;  
+  border-radius: 15px 15px 0 0;
   min-height: 400px;
   /* height: 60vh; */
   /* display: flex;
@@ -140,22 +249,83 @@ body{
   float: left;
 }
 .group1{
-  background: rgb(217, 212, 221); 
+
   /* float: left; */
   width: 250px; 
 }
 .group2{
   /* clear: both; */
   /* float: left; */
-  background: lime;  
+
   /* height: 100px; */
   width: 380px;
   /* order: -1; */
 }
 .group3{
   /* float: left; */
-  background: yellow;  
+
   width: 190px;
+}
+
+/* 로그인 */
+.login{
+  background: radial-gradient(circle at right top, #c9511e, #fa7f4a);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 0 0 #ccc ;
+
+}
+.login-heading{
+  font-weight: 700;
+  color: #ff0;
+  padding: 0 0 10px 10px;
+}
+.login-form, .sign{
+  background: #fff;
+}
+.sign li::before{
+  margin-right: 0;
+  margin-left: 0;
+  color: #c9511e;
+}
+.login-form{
+  padding: 10px 10px 0px 10px;
+ 
+}
+.login-form fieldset{
+  border-bottom: 1px solid #aaa;
+  position: relative;
+}
+.login-form input{
+  width: 90px;
+  height: 22px;
+  border: 1px solid #aaa;
+  padding: 1px 1px 1px 5px;
+}
+.sign{
+  display: flex;
+  letter-spacing: -1px;
+  justify-content: space-between;
+  padding: 10px;
+}
+.user-pw{
+  margin: 6px 0 10px 0
+}
+.login-form label{
+  width: 4.5em;
+  display: inline-block;
+}
+.btn-login{
+  width: 50px;
+  height: 50px;
+  border: 1px solid #c9511e;
+  background: #e76932;
+  color: #fff;
+  border-radius: 3px; 
+  font-size: 1.2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .slogen{
   background: red;  
